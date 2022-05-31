@@ -1,0 +1,39 @@
+<artifactId>lab-padroes-projeto-spring</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>lab-padroes-projeto-spring</name>
+	<description>Exemplos de Padrões de Projeto com Spring</description>
+	<description>Exemplos de Padrões de Projeto em Spring</description>
+
+	<properties>
+		<java.version>11</java.version>
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+
+/**
+ * Projeto Spring Boot gerado via Spring Initializr.
+ * Os seguintes módulos foram selecionados:
+ * - Spring Data JPA
+ * - Spring Web
+ * - H2 Database
+ * - OpenFeign
+ * 
+ * @author falvojr
+ */
+@EnableFeignClients
+@SpringBootApplication
+public class Application {package one.digitalinnovation.gof.model;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ClienteRepository extends CrudRepository<Cliente, Long> {
+
+} 
+package one.digitalinnovation.gof.service;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
